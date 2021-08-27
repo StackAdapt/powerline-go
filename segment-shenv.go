@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	pwl "github.com/justjanne/powerline-go/powerline"
+	pwl "github.com/StackAdapt/powerline-go/powerline"
 )
 
 func segmentShEnv(p *powerline) []pwl.Segment {

@@ -1,4 +1,4 @@
-module github.com/justjanne/powerline-go
+module github.com/StackAdapt/powerline-go
 
 go 1.12
 

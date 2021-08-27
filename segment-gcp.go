@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"strings"
 
-	pwl "github.com/justjanne/powerline-go/powerline"
+	pwl "github.com/StackAdapt/powerline-go/powerline"
 )
 
 func segmentGCP(p *powerline) []pwl.Segment {

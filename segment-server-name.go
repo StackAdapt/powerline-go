@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	pwl "github.com/justjanne/powerline-go/powerline"
+	pwl "github.com/StackAdapt/powerline-go/powerline"
 )
 
 func segmentServerName(p *powerline) []pwl.Segment {

@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	pwl "github.com/justjanne/powerline-go/powerline"
+	pwl "github.com/StackAdapt/powerline-go/powerline"
 )
 
 type repoStats struct {

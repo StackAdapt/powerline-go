@@ -2,7 +2,7 @@ package main
 
 import (
 	"crypto/md5"
-	pwl "github.com/justjanne/powerline-go/powerline"
+	pwl "github.com/StackAdapt/powerline-go/powerline"
 	"os"
 	"strconv"
 	"strings"

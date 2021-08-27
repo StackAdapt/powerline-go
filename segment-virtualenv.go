@@ -4,7 +4,7 @@ import (
 	"os"
 	"path"
 
-	pwl "github.com/justjanne/powerline-go/powerline"
+	pwl "github.com/StackAdapt/powerline-go/powerline"
 )
 
 func segmentVirtualEnv(p *powerline) []pwl.Segment {
