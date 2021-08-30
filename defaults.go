@@ -117,6 +117,27 @@ var defaults = Config{
 
 			VenvIndicator: "\uE235",
 		},
+		"mixed": {
+			Lock:                 "\uE0A2",
+			Network:              "SSH",
+			NetworkAlternate:     "SSH",
+			Separator:            "\u25B6",
+			SeparatorThin:        "\u276F",
+			SeparatorReverse:     "\u25C0",
+			SeparatorReverseThin: "\u276E",
+
+			RepoBranch:     "\uE0A0",
+			RepoDetached:   "\u2693",
+			RepoAhead:      "\u2B06",
+			RepoBehind:     "\u2B07",
+			RepoStaged:     "\u2714",
+			RepoNotStaged:  "\u270E",
+			RepoUntracked:  "+",
+			RepoConflicted: "\u273C",
+			RepoStashed:    "\u2691",
+
+			VenvIndicator: "\uE235",
+		},
 	},
 	Shells: ShellMap{
 		"bash": {
