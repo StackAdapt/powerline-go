@@ -7,6 +7,7 @@ import (
 )
 
 func segmentIPv4(p *powerline) []pwl.Segment {
+
 	content := ""
 	ipv4Public, _ := os.LookupEnv("PUBLIC_IPV4")
 	ipv4Local, _ := os.LookupEnv("LOCAL_IPV4")
