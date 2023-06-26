@@ -25,8 +25,9 @@ const (
 	MaxUnsignedInteger = ^MinUnsignedInteger
 	// MaxInteger maximum integer
 	MaxInteger = int(MaxUnsignedInteger >> 1)
-	// MinInteger minimum integer
+	/* MinInteger minimum integer
 	MinInteger = ^MaxInteger
+	*/
 )
 
 func warn(msg string) {
@@ -73,6 +74,7 @@ var modules = map[string]func(*powerline) []pwl.Segment{
 	"aws":                 segmentAWS,
 	"bzr":                 segmentBzr,
 	"cwd":                 segmentCwd,
+	"direnv":              segmentDirenv,
 	"docker":              segmentDocker,
 	"docker-context":      segmentDockerContext,
 	"dotenv":              segmentDotEnv,
@@ -95,6 +97,7 @@ var modules = map[string]func(*powerline) []pwl.Segment{
 	"perms":               segmentPerms,
 	"rbenv":               segmentRbenv,
 	"root":                segmentRoot,
+	"rvm":                 segmentRvm,
 	"shell-var":           segmentShellVar,
 	"shenv":               segmentShEnv,
 	"ssh":                 segmentSSH,
@@ -105,6 +108,7 @@ var modules = map[string]func(*powerline) []pwl.Segment{
 	"user":                segmentUser,
 	"venv":                segmentVirtualEnv,
 	"vgo":                 segmentVirtualGo,
+	"vi-mode":             segmentViMode,
 	"wsl":                 segmentWSL,
 	"nix-shell":           segmentNixShell,
 	"server-name":         segmentServerName,
@@ -185,6 +189,8 @@ func main() {
 			cfg.ShortenGKENames = *args.ShortenGKENames
 		case "shorten-eks-names":
 			cfg.ShortenEKSNames = *args.ShortenEKSNames
+		case "shorten-openshift-names":
+			cfg.ShortenOpenshiftNames = *args.ShortenOpenshiftNames
 		case "shell-var":
 			cfg.ShellVar = *args.ShellVar
 		case "shell-var-no-warn-empty":
@@ -208,6 +214,10 @@ func main() {
 			cfg.Condensed = *args.Condensed
 		case "ignore-warnings":
 			cfg.IgnoreWarnings = *args.IgnoreWarnings
+		case "time":
+			cfg.Time = *args.Time
+		case "vi-mode":
+			cfg.ViMode = *args.ViMode
 		case "root-only-user":
 			cfg.RootOnlyUser = *args.RootOnlyUser
 		}

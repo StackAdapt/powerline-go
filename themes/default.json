@@ -1,4 +1,5 @@
 {
+  "BoldForeground": false,
   "Reset": 255,
   "UsernameFg": 250,
   "UsernameBg": 240,
@@ -64,6 +65,10 @@
   "ShEnvBg": 130,
   "NodeFg": 15,
   "NodeBg": 40,
+  "NodeVersionFg": 40,
+  "NodeVersionBg": 15,
+  "RvmFg": 255,
+  "RvmBg": 160,
   "LoadFg": 15,
   "LoadBg": 22,
   "LoadHighBg": 161,
@@ -334,5 +339,9 @@
     "253": 240,
     "254": 242,
     "255": 243
-  }
+  },
+  "ViModeCommandFg": 0,
+  "ViModeCommandBg": 250,
+  "ViModeInsertFg": 22,
+  "ViModeInsertBg": 70
 }

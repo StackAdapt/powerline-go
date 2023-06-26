@@ -4,13 +4,13 @@ A [Powerline](https://github.com/Lokaltog/vim-powerline) like prompt for Bash,
 ZSH and Fish. Based on [Powerline-Shell](https://github.com/banga/powerline-shell) by @banga.
 Ported to golang by @justjanne.
 
-![Solarized+Powerline](https://raw.github.com/justjanne/powerline-go/master/preview.png)
+![Solarized+Powerline](https://raw.github.com/justjanne/powerline-go/main/preview.png)
 
 - Shows some important details about the git/hg branch (see below)
 - Changes color if the last command exited with a failure code
 - If you're too deep into a directory tree, shortens the displayed path with an ellipsis
 - Shows the current Python [virtualenv](http://www.virtualenv.org/) environment
-- Shows the current Ruby version using [rbenv](https://github.com/rbenv/rbenv)
+- Shows the current Ruby version using [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
 - Shows if you are in a [nix](https://nixos.org/) shell
 - It's easy to customize and extend. See below for details.
 
@@ -51,7 +51,7 @@ Each of these will have a number next to it if more than one file matches.
 
 ## Installation
 
-Requires Go 1.12+
+Requires Go 1.15+
 
 `powerline-go` uses ANSI color codes, these should nowadays work everywhere,
 but you may have to set your $TERM to `xterm-256color` for it to work.
@@ -81,7 +81,7 @@ go install github.com/justjanne/powerline-go@latest
 
 ### Bash
 
-Add the following to your `.bashrc` (or `.profile` on Mac):
+Add the following to your `.bashrc`:
 
 ```bash
 function _update_ps1() {
@@ -248,12 +248,12 @@ Usage of powerline-go:
          (default "patched")
   -modules string
          The list of modules to load, separated by ','
-         (valid choices: aws, bzr, cwd, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)
+         (valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, vi-mode, wsl)
          Unrecognized modules will be invoked as 'powerline-go-MODULE' executable plugins and should output a (possibly empty) list of JSON objects that unmarshal to powerline-go's Segment structs.
          (default "venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,root")
   -modules-right string
          The list of modules to load anchored to the right, for shells that support it, separated by ','
-         (valid choices: aws, bzr, cwd, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)
+         (valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)
          Unrecognized modules will be invoked as 'powerline-go-MODULE' executable plugins and should output a (possibly empty) list of JSON objects that unmarshal to powerline-go's Segment structs.
   -newline
          Show the prompt on a new line
@@ -266,7 +266,7 @@ Usage of powerline-go:
          Use '~' for your home dir. You may need to escape this character to avoid shell substitution.
   -priority string
          Segments sorted by priority, if not enough space exists, the least priorized segments are removed first. Separate with ','
-         (valid choices: aws, bzr, cwd, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)
+         (valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, vi-mode, wsl)
          (default "root,cwd,user,host,ssh,perms,git-branch,git-status,hg,jobs,exit,cwd-path")
   -root-only-user
          Displays the username only if the current user is root
@@ -295,6 +295,8 @@ Usage of powerline-go:
          (default 16)
   -venv-name-size-limit int
          Show indicator instead of virtualenv name if name is longer than this limit (defaults to 0, which is unlimited)
+  -vi-mode string
+         The current vi-mode (eg. KEYMAP for zsh) for vi-module module
 ```
 
 ### Eval
@@ -303,7 +305,7 @@ If using `eval` and `-modules-right` is desired, the shell setup must be modifie
 
 ##### Bash
 
-Add the following to your `.bashrc` (or `.profile` on Mac):
+Add the following to your `.bashrc`:
 
 ```bash
 function _update_ps1() {
@@ -437,5 +439,7 @@ end
 ## License
 
 > This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+>
 > This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+>
 > You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
