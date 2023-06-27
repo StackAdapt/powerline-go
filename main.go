@@ -111,6 +111,8 @@ var modules = map[string]func(*powerline) []pwl.Segment{
 	"vi-mode":             segmentViMode,
 	"wsl":                 segmentWSL,
 	"nix-shell":           segmentNixShell,
+	"server-name":         segmentServerName,
+	"ipv4":                segmentIPv4,
 }
 
 func comments(lines ...string) string {
@@ -216,6 +218,8 @@ func main() {
 			cfg.Time = *args.Time
 		case "vi-mode":
 			cfg.ViMode = *args.ViMode
+		case "root-only-user":
+			cfg.RootOnlyUser = *args.RootOnlyUser
 		}
 	})
 

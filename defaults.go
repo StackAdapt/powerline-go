@@ -64,6 +64,7 @@ var defaults = Config{
 	Eval:                 false,
 	Condensed:            false,
 	IgnoreWarnings:       false,
+	RootOnlyUser:         false,
 	Modes: SymbolMap{
 		"compatible": {
 			Lock:                 "RO",
@@ -111,6 +112,11 @@ var defaults = Config{
 			RvmIndicator:  "\uE92B",
 		},
 		"flat": {
+			Lock:             "\uE0A2",
+			Network:          "SSH",
+			NetworkAlternate: "SSH",
+
+			RepoBranch:     "\uE0A0",
 			RepoDetached:   "\u2693",
 			RepoAhead:      "\u2B06",
 			RepoBehind:     "\u2B07",
@@ -545,6 +551,12 @@ var defaults = Config{
 			ViModeCommandBg: 250,
 			ViModeInsertFg:  22,
 			ViModeInsertBg:  70,
+
+			ServerNameFg: 254,
+			ServerNameBg: 166,
+
+			IPv4Fg: 250,
+			IPv4Bg: 238,
 		},
 		"low-contrast": {
 			Reset: 0xFF,

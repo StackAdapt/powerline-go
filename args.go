@@ -46,6 +46,7 @@ type arguments struct {
 	IgnoreWarnings         *bool
 	Time                   *string
 	ViMode                 *string
+	RootOnlyUser           *bool
 }
 
 var args = arguments{
@@ -127,19 +128,19 @@ var args = arguments{
 		"modules",
 		strings.Join(defaults.Modules, ","),
 		commentsWithDefaults("The list of modules to load, separated by ','",
-			"(valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, vi-mode, wsl)",
+			"(valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, vi-mode, wsl)",
 			"Unrecognized modules will be invoked as 'powerline-go-MODULE' executable plugins and should output a (possibly empty) list of JSON objects that unmarshal to powerline-go's Segment structs.")),
 	ModulesRight: flag.String(
 		"modules-right",
 		strings.Join(defaults.ModulesRight, ","),
 		comments("The list of modules to load anchored to the right, for shells that support it, separated by ','",
-			"(valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)",
+			"(valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, wsl)",
 			"Unrecognized modules will be invoked as 'powerline-go-MODULE' executable plugins and should output a (possibly empty) list of JSON objects that unmarshal to powerline-go's Segment structs.")),
 	Priority: flag.String(
 		"priority",
 		strings.Join(defaults.Priority, ","),
 		commentsWithDefaults("Segments sorted by priority, if not enough space exists, the least priorized segments are removed first. Separate with ','",
-			"(valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, vi-mode, wsl)")),
+			"(valid choices: aws, bzr, cwd, direnv, docker, docker-context, dotenv, duration, exit, fossil, gcp, git, gitlite, goenv, hg, host, ipv4, jobs, kube, load, newline, nix-shell, node, perlbrew, perms, plenv, rbenv, root, rvm, server-name, shell-var, shenv, ssh, svn, termtitle, terraform-workspace, time, user, venv, vgo, vi-mode, wsl)")),
 	MaxWidthPercentage: flag.Int(
 		"max-width",
 		defaults.MaxWidthPercentage,
@@ -226,4 +227,8 @@ var args = arguments{
 		"vi-mode",
 		defaults.ViMode,
 		comments("The current vi-mode (eg. KEYMAP for zsh) for vi-module module")),
+	RootOnlyUser: flag.Bool(
+		"root-only-user",
+		defaults.RootOnlyUser,
+		comments("Displays the username only if the current user is root")),
 }
